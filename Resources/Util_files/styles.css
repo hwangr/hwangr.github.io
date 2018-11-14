@@ -15,6 +15,18 @@
 	
 }
 
+.building_maps {
+	position: relative;
+	top: 0px;
+	left: 0px;
+	z-index: 1;
+	
+	
+	height: 80%;
+	width: 80%;
+	
+}
+
 .printButtons {
 	position: absolute;
 	top: 200px;
@@ -22,7 +34,7 @@
 	z-index: 2;
 	
 	height: 80px;
-	width: 100px;	
+	width: 80px;	
 }
 
 .printButtons_2 {
