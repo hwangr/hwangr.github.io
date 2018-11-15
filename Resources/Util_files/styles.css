@@ -15,7 +15,7 @@
 	
 }
 
-.building_maps {
+.floor_maps {
 	position: relative;
 	top: 0px;
 	left: 0px;
@@ -29,8 +29,10 @@
 
 .printButtons {
 	position: absolute;
+	/*
 	top: 200px;
 	left: 100px;
+	*/
 	z-index: 2;
 	
 	height: 80px;
