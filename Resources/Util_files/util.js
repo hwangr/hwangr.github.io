@@ -33,6 +33,7 @@ function genPhotos() {
 		console.log("No good")
 	}
 	
+	console.log("Floor " + floor)
 	//Div to attach image to
 	var oriDiv = document.getElementById("building_map");
 	
@@ -45,7 +46,7 @@ function genPhotos() {
 	
 	
 	//Get JSON
-	var allPrinters = getBuildingPrinters(bName);
+	var allPrinters = getBuildingPrinters(bName, floor);
 	console.log(allPrinters);
 	console.log("Loop");
 	
@@ -71,8 +72,9 @@ function genPhotos() {
 }
 
 
-function getBuildingPrinters(bName) {
-	var pLocs = returnLocs();	
-	return pLocs[bName].printers;
+function getBuildingPrinters(bName, floor) {
+	var pLocs = returnLocs();
+	console.log(pLocs[bName].printers[floor])
+	return pLocs[bName].printers[floor];
 
 }

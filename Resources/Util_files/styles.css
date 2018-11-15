@@ -34,18 +34,10 @@
 	left: 100px;
 	*/
 	z-index: 2;
-	
-	height: 80px;
-	width: 80px;	
-}
-
-.printButtons_2 {
-	/*Testing two buttons only, do this in JS*/
-	position: absolute;
-	top: 200px;
-	left: 300px;
-	z-index: 2;
-	
-	height: 80px;
-	width: 100px;	
+	/*
+	height: 90px;
+	width: 60px;
+*/	
+	height: 9%;
+	width: 5%;
 }
