@@ -1,6 +1,3 @@
-console.log(x)
-console.log(y)
-
 
 var url_string = window.location.href;
 var url = new URL(url_string);
@@ -15,7 +12,7 @@ var x = [];
 var y = [];
 for (var i = 0; i < 24; i++) {
 	console.log(usageResults[pname][i].Jobs)
-	y[i] = usageResults[pname][i].Jobs
+	y[i] = usageResults[pname][i].Jobs / 7
 	x[i] = i;
 }
 
@@ -35,7 +32,7 @@ var layout = {
     title: 'Time',
   },
   yaxis: {
-    title: 'Number of Jobs',
+    title: 'Average Number of Jobs',
 
   }
 };
