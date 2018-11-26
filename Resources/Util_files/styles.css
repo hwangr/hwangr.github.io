@@ -12,7 +12,14 @@
 	
 	height: 40%;
 	width: 40%;
-	
+	/*
+	padding: 700px 0;
+	*/
+}
+
+.maps_container {
+	margin-left: auto;
+    margin-right: auto;
 }
 
 .floor_maps {
@@ -37,7 +44,19 @@
 	/*
 	height: 90px;
 	width: 60px;
-*/	
+	
 	height: 9%;
-	width: 5%;
+	*/
+	
+	width: 3%;
+	height: auto;
+}
+
+.index_back {
+   background-image: url("../Misc/background.jpg");
+   background-size:cover;
+}
+
+.mainMap_back {
+   background-image: url("../Misc/background2.jpg");
 }

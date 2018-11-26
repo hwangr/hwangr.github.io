@@ -64,7 +64,8 @@ function genPhotos() {
 		pic.style.left = allPrinters[i].left;
 		//Link for icon
 		newLink.appendChild(pic);
-		newLink.href = "Usage.html"
+		//newLink.href = "Usage.html"
+		newLink.href = "Usage.html?pname=" + allPrinters[i].p_name
 		//Attach to div
 		oriDiv.appendChild(newLink);
 	}
@@ -78,3 +79,4 @@ function getBuildingPrinters(bName, floor) {
 	return pLocs[bName].printers[floor];
 
 }
+	

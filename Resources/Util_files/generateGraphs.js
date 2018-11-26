@@ -1,14 +1,41 @@
 
+var url_string = window.location.href;
+var url = new URL(url_string);
+var pname = url.searchParams.get("pname");
+console.log(pname);
 
+var usageResults = returnUsage();
+console.log(usageResults)
+console.log(usageResults[pname])
 
 var x = [];
-for (var i = 0; i < 500; i ++) {
-    x[i] = Math.random();
+var y = [];
+for (var i = 0; i < 24; i++) {
+	console.log(usageResults[pname][i].Jobs)
+	y[i] = usageResults[pname][i].Jobs
+	x[i] = i;
 }
 
+
+console.log(x)
+console.log(y)
 var trace = {
     x: x,
-    type: 'histogram',
-  };
+	y: y,
+    type: 'bar',
+};
 var data = [trace];
-Plotly.newPlot('myDiv', data);
+
+var layout = {
+  title: 'Weekly Printer Usage For ',
+  xaxis: {
+    title: 'Time',
+  },
+  yaxis: {
+    title: 'Number of Jobs',
+
+  }
+};
+
+layout.title += pname + ':'
+Plotly.newPlot('myDiv', data, layout);
