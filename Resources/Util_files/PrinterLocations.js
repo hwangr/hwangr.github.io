@@ -11,8 +11,8 @@ var pLocs = {
 				{"p_name": "m-dc-b430-bwmulti-1", 	"floor": "B1", "top": "200px", "left": "800px", "color": "N", "multi": "Y"},
 			],
 			"1": [
-				{"p_name": "m-dc-1485-bwmulti-1", 	"floor": 1, "top": "200px", "left": "100px", "color": "N", "multi": "Y"},
-				{"p_name": "m-dc-1485-color-1", 	"floor": 1, "top": "200px", "left": "800px", "color": "Y", "multi": "N"},
+				{"p_name": "m-dc-1485-bwmulti-1", 	"floor": 1, "top": "47%", "left": "41%", "color": "N", "multi": "Y"},
+				{"p_name": "m-dc-1485-color-1", 	"floor": 1, "top": "47%", "left": "41%", "color": "Y", "multi": "N"},
 			],
 			"2": [
 				{"p_name": "m-dc-2330-bw-1a", 		"floor": 2, "top": "200px", "left": "300px", "color": "N", "multi": "N"},

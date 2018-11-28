@@ -37,6 +37,16 @@ function genPhotos() {
 	//Div to attach image to
 	var oriDiv = document.getElementById("building_map");
 	
+	//Arrows
+	/*
+	var arrUp = document.createElement("IMG");
+	arrUp.src = "Resources/Misc/arrow_up.jpg";
+	oriDiv.appendChild(arrUp);
+	var arrDown = document.createElement("IMG");
+	arrDown.src = "Resources/Misc/arrow_down.jpg";
+	oriDiv.appendChild(arrDown);
+	*/
+	
 	//Floorplan Pic
 	var floorPlan = document.createElement("IMG");
 	floorPlan.src = "Resources/Building_Maps/" + bName + "/f" + floor + ".png";
@@ -49,6 +59,7 @@ function genPhotos() {
 	var allPrinters = getBuildingPrinters(bName, floor);
 	console.log(allPrinters);
 	console.log("Loop");
+	
 	
 
 	//Array, indexed already in JSON format
