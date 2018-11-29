@@ -37,6 +37,10 @@ function genPhotos() {
 	//Div to attach image to
 	var oriDiv = document.getElementById("building_map");
 	
+	//Change header description for floor
+	var desc = document.getElementById("building_desc");
+	desc.innerHTML = "Building Map - " + bName + " " + floor;
+	
 	//Arrows
 	/*
 	var arrUp = document.createElement("IMG");
@@ -48,11 +52,140 @@ function genPhotos() {
 	*/
 	
 	//Floorplan Pic
+	/*
 	var floorPlan = document.createElement("IMG");
 	floorPlan.src = "Resources/Building_Maps/" + bName + "/f" + floor + ".png";
 	floorPlan.className = "floor_maps";
 	oriDiv.appendChild(floorPlan);
+	*/
+	var floorPlan = document.getElementById("floorplan_pic");
+	floorPlan.style.backgroundImage = "url('Resources/Building_Maps/" + bName + "/" + floor + ".png')";
 	//<img class="building_maps" src="Resources/Building_Maps/Duderstadt/dc_1.png"></img>
+	
+	var pLocs = returnLocs();
+	if (pLocs[bName].printers["B2"]) {
+		console.log("OKOK");
+	}
+	if (pLocs[bName].printers["F2"]) {
+		console.log("OKOKF@");
+	}
+	//console.log(pLocs[bName].printers["B2"]);
+	console.log(floor[1]);
+	
+	//Display Arrows	
+	var left = document.getElementById("arrows_container");
+	var floorNum = floor[1];
+	//Get prefix - B or F
+	if (floor[0] == "F") {
+		//First floor - special case
+		if (floorNum == 1) {
+			//Up arrow
+			if (pLocs[bName].printers["F" + (Number(floorNum)+1)]) {	
+				var newDiv = document.createElement("div");
+				var newLink = document.createElement("a");
+				var arrow = document.createElement("IMG");
+				arrow.src = "Resources/Misc/arrow_up.jpg";
+				newLink.href = "BuildingMap.html?bName=" + bName + "&floor=" + "F" + (Number(floorNum)+1);
+				newLink.appendChild(arrow);
+				newDiv.appendChild(newLink);
+				left.appendChild(newDiv);
+			}
+			//Down arrow - B1
+			if (pLocs[bName].printers["B1"]) {
+				var newDiv = document.createElement("div");
+				var newLink = document.createElement("a");
+				var arrow = document.createElement("IMG");
+				arrow.src = "Resources/Misc/arrow_down.jpg";
+				newLink.href = "BuildingMap.html?bName=" + bName + "&floor=" + "B1";
+				newLink.appendChild(arrow);
+				newDiv.appendChild(newLink);
+				left.appendChild(newDiv);
+			}
+		}
+		//Any Floor above 1
+		else {
+			//Up arrow
+			if (pLocs[bName].printers["F" + (Number(floorNum)+1)]) {
+				var newDiv = document.createElement("div");
+				var newLink = document.createElement("a");
+				var arrow = document.createElement("IMG");
+				arrow.src = "Resources/Misc/arrow_up.jpg";
+				newLink.href = "BuildingMap.html?bName=" + bName + "&floor=" + "F" + (Number(floorNum)+1);
+				newLink.appendChild(arrow);
+				newDiv.appendChild(newLink);
+				left.appendChild(newDiv);
+			}
+			//Down arrow
+			if (pLocs[bName].printers["F" + (Number(floorNum)-1)]) {
+				console.log("JOJOIJOIJ");
+				var newDiv = document.createElement("div");
+				var newLink = document.createElement("a");
+				var arrow = document.createElement("IMG");
+				arrow.src = "Resources/Misc/arrow_down.jpg";
+				newLink.href = "BuildingMap.html?bName=" + bName + "&floor=" + "F" + (Number(floorNum)-1);
+				newLink.appendChild(arrow);
+				newDiv.appendChild(newLink);
+				left.appendChild(newDiv);
+			}
+			
+		}
+		
+	}
+	else if (floor[0] == "B") {
+		//Basement floor 1 - special case
+		if (floorNum == 1) {
+			//Up arrow - F1
+			if (pLocs[bName].printers["F1"]) {	
+				var newDiv = document.createElement("div");
+				var newLink = document.createElement("a");
+				var arrow = document.createElement("IMG");
+				arrow.src = "Resources/Misc/arrow_up.jpg";
+				newLink.href = "BuildingMap.html?bName=" + bName + "&floor=" + "F1";
+				newLink.appendChild(arrow);
+				newDiv.appendChild(newLink);
+				left.appendChild(newDiv);
+			}
+			//Down arrow
+			if (pLocs[bName].printers["B" + (Number(floorNum)+1)]) {
+				var newDiv = document.createElement("div");
+				var newLink = document.createElement("a");
+				var arrow = document.createElement("IMG");
+				arrow.src = "Resources/Misc/arrow_down.jpg";
+				newLink.href = "BuildingMap.html?bName=" + bName + "&floor=" + "B" + (Number(floorNum)+1);
+				newLink.appendChild(arrow);
+				newDiv.appendChild(newLink);
+				left.appendChild(newDiv);
+			}
+		}
+		//Any Floor below B1
+		else {
+			//Up arrow
+			if (pLocs[bName].printers["F" + (Number(floorNum)-1)]) {
+				var newDiv = document.createElement("div");
+				var newLink = document.createElement("a");
+				var arrow = document.createElement("IMG");
+				arrow.src = "Resources/Misc/arrow_up.jpg";
+				newLink.href = "BuildingMap.html?bName=" + bName + "&floor=" + "B" + (Number(floorNum)-1);
+				newLink.appendChild(arrow);
+				newDiv.appendChild(newLink);
+				left.appendChild(newDiv);
+			}
+			//Down arrow
+			if (pLocs[bName].printers["F" + (Number(floorNum)+1)]) {
+				console.log("JOJOIJOIJ");
+				var newDiv = document.createElement("div");
+				var newLink = document.createElement("a");
+				var arrow = document.createElement("IMG");
+				arrow.src = "Resources/Misc/arrow_down.jpg";
+				newLink.href = "BuildingMap.html?bName=" + bName + "&floor=" + "B" + (Number(floorNum)+1);
+				newLink.appendChild(arrow);
+				newDiv.appendChild(newLink);
+				left.appendChild(newDiv);
+			}
+			
+		}
+		
+	}
 	
 	
 	//Get JSON
@@ -69,7 +202,8 @@ function genPhotos() {
 		var newLink = document.createElement("a");
 		var pic = document.createElement("IMG");
 		var picNum = Number(i) + 1;
-		pic.src = "Resources/Misc/P" + picNum + ".png";
+		//pic.src = "Resources/Misc/P" + picNum + ".png";
+		pic.src = "Resources/Misc/BW_MULTI.png";
 		pic.className = "printButtons";
 		pic.style.top = allPrinters[i].top;
 		pic.style.left = allPrinters[i].left;

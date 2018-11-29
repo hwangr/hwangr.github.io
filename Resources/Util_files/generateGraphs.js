@@ -3,7 +3,7 @@ var url_string = window.location.href;
 var url = new URL(url_string);
 var pname = url.searchParams.get("pname");
 console.log(pname);
-
+pname = pname.toLowerCase();
 var usageResults = returnUsage();
 console.log(usageResults)
 console.log(usageResults[pname])
