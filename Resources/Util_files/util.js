@@ -60,6 +60,7 @@ function genPhotos() {
 	*/
 	var floorPlan = document.getElementById("floorplan_pic");
 	floorPlan.style.backgroundImage = "url('../Resources/Building_Maps/" + bName + "/" + floor.toLowerCase() + ".png')";
+	console.log("url('../Resources/Building_Maps/" + bName + "/" + floor.toLowerCase() + ".png')");
 	//<img class="building_maps" src="Resources/Building_Maps/Duderstadt/dc_1.png"></img>
 	
 	var pLocs = returnLocs();
